@@ -1,0 +1,61 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "com.darren.smith.videoplayer"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        // Flag to enable support for the new language APIs
+        coreLibraryDesugaringEnabled true
+        // Sets Java compatibility to Java 8
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.0.9'
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.4.10"
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+    //for navigation in application
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.2'
+
+    //asynchronous loading images in ImageView from network and local storages
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+
+    //adds ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+
+
+    //Dependency injection framework "Koin"
+    implementation 'org.koin:koin-android-viewmodel:2.2.2'
+    implementation 'org.koin:koin-androidx-viewmodel:2.2.2'
+    implementation "org.koin:koin-android:2.2.2"
+    implementation "org.koin:koin-core:2.2.2"
+
+}
